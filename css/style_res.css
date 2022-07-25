@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+@media(max-width:1199px){
+    header{padding: 0 10px;}
+    #sub_item .wrap{width:100%;}
+}
+@media(max-width:991px){
+    #sub_item .wrap .content .box{
+        width: calc(100% / 3 - 20px);
+    }
+}
+/* 남발하면 안됨! 몰아서 써야된다. */
+@media(max-width:767px){
+    #app{padding-bottom: 40px;}
+    header .menu{
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 110px);
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 10;
+        z-index: -1; opacity: 0; 
+    }
+    header .menu.active{
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+    header .menu ul{
+        height: 100%;
+        /* 강제로 축을 열정렬 형태로 바꾼다. */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     
+    }
+    header .menu ul li{
+        margin: 2vh 0;
+    }
+    header .menu ul li a{
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    header .mypage{
+        position:fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        justify-content: center;
+        z-index: 1;
+    }
+    header .mypage ul{width: 100%;}
+    header .mypage ul li{margin: 0; width: 50%;}
+    header .mypage ul li a{
+        width: 100%;
+        height: 50px;
+        background-size: auto 14px;
+    }
+
+    header .resBtn{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transform: translateY(-50%);
+        /* background-color: #a00; */
+    }
+    header .resBtn span{
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 1px;
+        transition: all 0.5s;
+    }
+    header .resBtn span:nth-child(1){
+        transform: translateY(-10px);
+    }
+    header .resBtn span:nth-child(2){
+        transform: translateY(10px);
+    }
+
+    header .resBtn.active span:nth-child(1){
+        width: 30px;
+        transform: translateY(0) rotate(45deg);
+    }
+    header .resBtn.active span:nth-child(2){
+        width: 30px;
+        transform: translateY(0) rotate(-45deg);
+    }
+    header .resBtn.active span:nth-child(3){
+        transform: translateX(80px);
+        background-color: transparent;
+    }
+
+    #sub_item .wrap .content .box{
+        width: calc(100% / 2 - 20px);
+    }
+}

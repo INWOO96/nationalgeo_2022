@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue_Router - National Geographic</title>
+    <link rel="shortcut icon" href="./img/yellowFrame.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_res.css">
+</head>
+<body>
+    <div id="app">
+        <header-el></header-el>
+        <router-view></router-view>
+        <footer-el></footer-el>
+    </div>
+
+    <!-- <header>
+        <div class="logo">
+            <router-link to="/">
+                <img src="./img/toplogo.png" alt="">
+            </router-link>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><router-link to="/animal">animal1</router-link></li>
+                <li><router-link to="/animal">animal2</router-link></li>
+                <li><router-link to="/animal">animal3</router-link></li>
+                <li><router-link to="/animal">animal4</router-link></li>
+                <li><router-link to="/animal">animal5</router-link></li>
+            </ul>
+        </div>
+        <div class="mypage">
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+    </header> -->
+
+    <!-- <section id="main">
+        autoplay loop : 반복재생, muted : 음소거, playsinline : ios에서도 돌아가게 만듬
+        <video src="./video/animal.mp4" autoplay loop muted playsinline></video>
+
+        video_dark로 가독성 떨어지는 효과 막을것임
+        <div class="video_dark"></div>
+
+        <div class="wrap">
+            <div class="main_cont">
+                <div class="content">
+                    <img src="./img/yellowFrame.png" alt="">
+                    <h2>Animal</h2>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="sub_item">
+        <div class="wrap">
+            <h2>00000</h2>
+            <div class="content">
+
+                <div class="box">
+                    <div class="bg_img"></div>
+                    <div class="info"><h3>0000-news-01</h3></div>
+                </div>
+                <div class="box">
+                    <div class="bg_img"></div>
+                    <div class="info"><h3>0000-news-01</h3></div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+    <div class="mypage">
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+    <div class="resBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- vue잡고 그 밑에 써주어야한다. -->
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

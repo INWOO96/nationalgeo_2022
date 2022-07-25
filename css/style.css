@@ -1,0 +1,200 @@
+@charset "utf-8";
+*{box-sizing: border-box;}/* 주석 */
+html, body{margin: 0; padding: 0;}
+h1, h2, h3, h4, h5, h6, p{margin : 0;}
+ul, ol{margin: 0; padding: 0; list-style: none;}
+a, a:hover{text-decoration: none;}
+
+body.showMenu{overflow: hidden;}
+
+/* 공통 header - app은 전체라서 안써도됨 */
+header{
+    height: 60px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 정형화된건 아니지만 40px이 이쁘다 */
+    padding: 0 40px; 
+    position: relative;
+}
+header .logo{}
+header .logo a{}
+header .logo a img{display: block; width: 110px;}
+
+header .menu{}
+header .menu ul{display: flex;}
+header .menu ul li{margin: 0 15px;}
+header .menu ul li a{
+    display: block;
+    color: #ccc;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+header .menu ul li:hover a{
+    color: #fd0;
+}
+header .mypage{
+    width: 110px;
+    display: flex;
+    /* flex-end는 오른쪽으로 붙인다는 의미이다. */
+    justify-content: flex-end;
+}
+header .mypage ul{display: flex;}
+header .mypage ul li{margin: 0 10px;}
+header .mypage ul li a{
+    display: block;
+    width: 16px; height: 16px;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+header .mypage ul li:nth-child(1) a{
+    background-image: url(../img/icon_img/search_white.svg);
+}
+header .mypage ul li:nth-child(1):hover a{
+    background-image: url(../img/icon_img/search_yellow.svg);
+}
+header .mypage ul li:nth-child(2) a{
+    background-image: url(../img/icon_img/user_white.svg);
+}
+header .mypage ul li:nth-child(2):hover a{
+    background-image: url(../img/icon_img/user_yellow.svg);
+}
+
+header .resBtn{
+    display: none;
+}
+
+/* #main */
+#main{
+    width: 100%;
+    height: calc(100vh - 110px); /* 상단50, 하단 60 */
+    overflow: hidden;
+    position: relative;
+}
+#main video{
+    position: absolute;
+    width: 120%; height: 120%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* 꽉채울것이다. bgc : cover랑 똑같다 */
+}
+#main .video_dark{
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#main .wrap{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    padding: 80px;
+}
+#main .wrap .main_cont{
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main .wrap .main_cont .content{
+    display: flex;
+    align-items: center;
+}
+#main .wrap .main_cont .content img{
+    display: block;
+    height: 75px;
+    /* [주의!] img라서 padding 주면 찌그러진다! */
+    margin-right: 30px;
+    animation: 2s symbolMove 1;
+}
+@keyframes symbolMove{
+    /* 로고 나타내고 글자나타낼것임 그래서 처음엔 0% */
+    /* 0%에서 2초 이동하는 동안이라는 뜻 */
+    0%{transform: translateX(-130%); opacity: 0};
+    100%{transform: translateX(0); opacity: 1};
+}
+#main .wrap .main_cont .content h2{
+    font-size: 36px;
+    color: #fff;
+    animation : 4s titleMove 1;
+    text-transform: capitalize;
+    /* 심볼나오고 타이틀나오게 지연시킬 것임 */
+    /* animation delay가 다시 루프되는 현상?이 있어 좋지않기 때문에 transition-delay를 쓸 것 */
+    /* 근데 안먹음 뭐임? */
+
+}
+@keyframes titleMove{
+    /* 0%에서 4초 이동하는 동안이라는 뜻 */
+    0%{transform: translateX(1000%); opacity: 0};
+    50%{transform: translateX(1000%); opacity: 0};
+    100%{transform: translateX(0); opacity: 1};
+}
+
+/* #sub_item */
+#sub_item{
+    padding: 60px 0;
+}
+#sub_item .wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+#sub_item .wrap h2{
+    font-size: 28px;
+    color: #555;
+    text-align: center;
+    padding-bottom: 40px;
+    text-transform: uppercase;
+}
+#sub_item .wrap .content{
+    display: flex;
+    /* 자기의 고유값 유지 */
+    flex-wrap: wrap;
+}
+#sub_item .wrap .content .box{
+    width: calc(25% - 20px);
+    height: 280px;
+    margin: 0 10px 20px;
+    overflow: hidden;
+    position: relative;
+}
+#sub_item .wrap .content .box .bg_img{
+    width: 100%; height: 100%;
+    background-color: #ffc;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: transform 0.5s;
+}
+#sub_item .wrap .content .box:hover .bg_img{
+    transform: scale(1.05);
+}
+#sub_item .wrap .content .box .info{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#sub_item .wrap .content .box:hover .info{
+    opacity: 1;
+}
+#sub_item .wrap .content .box .info h3{
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+}
+
+footer{
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
